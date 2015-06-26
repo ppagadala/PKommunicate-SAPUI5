@@ -1,0 +1,32 @@
+{
+  "name": "openui5-bower",
+  "version": "1.22.9",
+  "author": "SAP AG",
+  "contributors": [
+    "SAP AG <*@sap.com>"
+  ],
+  "description": "Fork of the OpenUI5 runtime for bower enablement.",
+  "keywords": [
+    "OpenUI5",
+    "Bower",
+    "SAP"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "README.md"
+  ],
+  "homepage": "https://github.com/RaYell/openui5-bower",
+  "_release": "1.22.9",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.22.9",
+    "commit": "895100ce6cda9b8714719e6e0aadcfdf5828d639"
+  },
+  "_source": "git://github.com/RaYell/openui5-bower.git",
+  "_target": "~1.22.9",
+  "_originalSource": "openui5-bower"
+}

@@ -1,0 +1,79 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="view.postDetail" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Page id="postDetail" showHeader="false">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			    <l:content>
+			      <f:SimpleForm id="SimpleFormChange354"
+			        minWidth="1024"
+			        maxContainerCols="2"
+			        editable="true"
+			        layout="ResponsiveGridLayout"
+			        title="{
+			        path:'/name',
+			        formatter:'my.Formatter.postedBy'
+			        }"
+			        labelSpanL="3"
+			        labelSpanM="3"
+			        emptySpanL="4"
+			        emptySpanM="4"
+			        columnsL="4"
+			        columnsM="1"
+			        class="editableForm">
+				        <f:content>
+				          <Label text="Post Description" />
+				          <TextArea rows="3" Cols="50" value="{/description}" editable="false" enabled="false"/>
+				          <Label text="Attachments" />
+				          <Carousel width = "300px" height = "250px" pageIndicatorPlacement = "Bottom" loop="true">
+				          	<pages>
+				          		<Image src="img/Shout-Out.png"/>
+				          		<Image src="img/t-mobile-mytouch-4g.0.jpg"/>
+				          	</pages>
+				          </Carousel>
+				          <Label text="Post your reply" />
+				          <TextArea Rows="3"  tooltip="your reply"/>
+				        </f:content>
+			      </f:SimpleForm>
+			    </l:content>
+			    <Label text="Posted Replies"/>
+	          <Table id="idRepliesTable"   width="80%"
+			    items="{
+			      path: '/replies'
+			    }">
+				    <columns>
+				      <Column
+				        width="12em">
+				        <Text text="Replied by" />
+				      </Column>
+				      <Column
+				        minScreenWidth="Tablet"
+				        demandPopin="true">
+				        <Text text="Replied Description" />
+				      </Column>
+				      <Column
+				        minScreenWidth="Tablet"
+				        demandPopin="true"
+				        hAlign="Right">
+				        <Text text="Replied Date" />
+				      </Column>
+				    </columns>
+				    <items>
+				      <ColumnListItem>
+				        <cells>
+				          <Text text="{repliedBy}" />
+				          <Text text="{repliedDesc}" />
+				          <Text text="{repliedDate}" />
+				        </cells>
+				      </ColumnListItem>
+				    </items>
+			 	 </Table>	
+		  </l:Grid>
+		  <footer>
+		      <Bar>
+		        <contentMiddle>
+		          <Button id="edit" text="Reply" type="Accept" press="handleReplyPress" />
+		          <Button id="cancel" text="Cancel" type="Reject" press="handleCancelPress" />
+		        </contentMiddle>
+		      </Bar>
+	     </footer>
+	</Page>
+</core:View>

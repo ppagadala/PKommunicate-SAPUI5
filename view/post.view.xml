@@ -1,0 +1,70 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="view.post" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:cntrl="control" >
+	<Page id="post" showHeader="false">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			    <l:content>
+			      <f:SimpleForm id="SimpleFormChange354"
+			        minWidth="1024"
+			        maxContainerCols="2"
+			        editable="true"
+			        layout="ResponsiveGridLayout"
+			        title="Go Ahead and Happy Posting"
+			        labelSpanL="3"
+			        labelSpanM="3"
+			        emptySpanL="4"
+			        emptySpanM="4"
+			        columnsL="1"
+			        columnsM="1"
+			        class="editableForm">
+				        <f:content>
+                            <cntrl:HelloController name="World"/>
+                            <Label text="Custom MultiCombo"/>
+                            <MultiComboBox selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish" width="500px"
+                            items="{
+                                            path: '/questionCategories',
+                                             sorter: { path: 'category' }
+                                        }">
+                            <core:Item key="{category}" text="{category}" />
+                          </MultiComboBox>
+                          <Label text="Native HTML button" />  
+                          <html:textarea type="radio"> Native HTMl button</html:textarea>    
+				          <Label text="Title" />
+				          <Input  tooltip="Question Title"/>
+				          <Label text="Category" />
+				          <Select width="100%" items="{
+								path : '/questionCategories'
+							}">
+							<items>
+								<core:Item text="{category}" />
+							</items>
+				          </Select>
+				          <Label text="Description" labelFor="postDescription"/>
+				          <TextArea Rows="3" tooltip="Question Description" required="true" id="postDescription"/>
+				          <Label text="Username" />
+				          <Input  tooltip="username"/>
+				          <Label text="User Email" />
+				          <Input tooltip="User Email"  />   
+				          <Label text="Phone" />
+				          <Input tooltip="Phone Number"/>
+				          <Label text="" />
+				          <Label text="Attachments" />
+				          <Carousel width = "300px" height = "250px" pageIndicatorPlacement = "Bottom" loop="true">
+				          	<pages>
+				          		<Image src="img/Shout-Out.png"/>
+				          		<Image src="img/t-mobile-mytouch-4g.0.jpg"/>
+				          	</pages>
+				          </Carousel>                       
+				        </f:content>
+			      </f:SimpleForm>
+			    </l:content>
+		  </l:Grid>	
+		  <footer>
+		      <Bar>
+		        <contentMiddle>
+		          <Button id="edit" text="Done" type="Accept" press="handleDonePress" />
+		          <Button id="save" text="Clear" type="Emphasized" press="handleClearPress" />
+		          <Button id="cancel" text="Cancel" type="Reject" press="handleCancelPress" />
+		        </contentMiddle>
+		      </Bar>
+	     </footer>
+     </Page>
+</core:View>

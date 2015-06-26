@@ -1,0 +1,22 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="view.home">
+	<Page title="PKommunicate" id="HomePage">
+		<content>
+			<List
+				id="menuList"
+				headerText="Menu"
+				mode="None"
+				items="{
+					path : '/menuCategories'
+				}">
+				<items>
+					<StandardListItem
+						title="{CategoryName}"
+						type="Active"
+						press="handleCategoryListItemPress" >
+					</StandardListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</core:View>

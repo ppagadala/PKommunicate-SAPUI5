@@ -1,0 +1,94 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="view.search" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Page id="post" showHeader="false">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			    <l:content>
+			      <f:SimpleForm id="SimpleFormChange354"
+			        minWidth="1024"
+			        maxContainerCols="2"
+			        editable="true"
+			        layout="ResponsiveGridLayout"
+			        title="Help is on your way...!!!"
+			        labelSpanL="3"
+			        labelSpanM="3"
+			        emptySpanL="4"
+			        emptySpanM="4"
+			        columnsL="1"
+			        columnsM="1"
+			        class="editableForm">
+				        <f:content>
+				          <Label text="Whose Post was it?" />
+				          <Input  tooltip="username"/>
+				          <Label text="Category" />
+				          <Select width="100%" items="{
+								path : '/questionCategories'
+							}">
+							<items>
+								<core:Item text="{category}" />
+							</items>
+				          </Select>
+				          <Label text="Post is about?"/>
+				          <Input  tooltip="Question Title"/>
+				        </f:content>
+			      </f:SimpleForm>
+			    </l:content>
+		  </l:Grid>
+		  <Table id="idPostsTable" height="50%"
+		    visible="{/submit}"
+		    items="{
+		      path: '/posts'
+		    }">
+			    <headerToolbar>
+			      <Toolbar>
+			        <Label text="Search Post Results"></Label>
+			      </Toolbar>
+			    </headerToolbar>
+			    <columns>
+			      <Column
+			        width="12em">
+			        <Text text="Posted by" />
+			      </Column>
+			      <Column
+			        minScreenWidth="Tablet"
+			        demandPopin="true">
+			        <Text text="Post" />
+			      </Column>
+			      <Column
+			        minScreenWidth="Tablet"
+			        demandPopin="true"
+			        hAlign="Right">
+			        <Text text="Date" />
+			      </Column>
+			      <Column
+			        minScreenWidth="Tablet"
+			        demandPopin="true"
+			        hAlign="Center">
+			        <Text text="No. of Replies" />
+			      </Column>
+			    </columns>
+			    <items>
+			      <ColumnListItem>
+			        <cells>
+			          <Text text="{name}" />
+			          <Link
+			            text="{title}"
+			            href="{
+			            path: 'id',
+			            formatter: 'my.Formatter.link'
+			            }" />
+			          <Text text="{date}" />
+			          <Text text="{NbrOfReplies}" />
+			        </cells>
+			      </ColumnListItem>
+			    </items>
+		  </Table>	
+		  <footer>
+		      <Bar>
+		        <contentMiddle>
+		          <Button id="edit" text="Help" type="Accept" press="handleHelpPress" />
+		          <Button id="save" text="Clear" type="Emphasized" press="handleClearPress" />
+		          <Button id="cancel" text="Cancel" type="Reject" press="handleCancelPress" />
+		        </contentMiddle>
+		      </Bar>
+	     </footer>
+	</Page>
+</core:View>
